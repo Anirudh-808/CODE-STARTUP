@@ -20,7 +20,7 @@ void copy_content(FILE *source, FILE *destination)
     }
 }
 
-void check_ext(char *ext, FILE *real)
+void check_ext_copy(char *ext, FILE *real)
 {
     // Used to check the extension of file
     FILE *ref = NULL;
@@ -48,17 +48,33 @@ int main(int argc, char *argv[])
     strcpy(actual_file, argv[1]);
     printf("Actual file: %s\n", actual_file);
 
-    actual = fopen(actual_file , "w");
-    check_file(actual);
-    char actual_file_name[100];
     char ext[10];
+    char actual_file_name[100];
 
     //trying to serparate the file name and extension
     strcpy(actual_file_name , strtok(actual_file, "."));
     strcpy(ext , strtok(NULL, "."));
     printf("Extension: %s\n", ext);
 
-    check_ext(ext, actual);
+    char actual_file_path[100] = "";
+    if (strcmp(ext , "c") == 0)
+    {
+        strcpy(actual_file_path, "D:\\CODE\\C\\");
+        strcat(actual_file_path, actual_file_name);
+        strcat(actual_file_path, ".c");
+    }
+    else if (strcmp(ext , "py") == 0)
+    {
+        strcpy(actual_file_path, "D:\\CODE\\PYTHON\\");
+        strcat(actual_file_path, actual_file_name);
+        strcat(actual_file_path, ".py");
+    }
+
+    printf("Actual file path: %s\n", actual_file_path);
+    actual = fopen(actual_file_path , "w");
+    check_file(actual);
+
+    check_ext_copy(ext, actual);
 
     fclose(actual);
     return 0;
