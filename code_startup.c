@@ -3,6 +3,7 @@
 #include <string.h>
 
 //macros for file paths
+/*change the file path macros to the required directories*/
 #define C_FILE_PATH "D:\\CODE\\C\\"
 #define PYTHON_FILE_PATH "D:\\CODE\\PYTHON\\"
 
