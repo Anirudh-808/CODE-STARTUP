@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+//macros for file paths
+#define C_FILE_PATH "D:\\CODE\\C\\"
+#define PYTHON_FILE_PATH "D:\\CODE\\PYTHON\\"
+
 void check_file(FILE *file){
     if (file = NULL)
     {
@@ -59,13 +63,13 @@ int main(int argc, char *argv[])
     char actual_file_path[100] = "";
     if (strcmp(ext , "c") == 0)
     {
-        strcpy(actual_file_path, "D:\\CODE\\C\\");
+        strcpy(actual_file_path, C_FILE_PATH);
         strcat(actual_file_path, actual_file_name);
         strcat(actual_file_path, ".c");
     }
     else if (strcmp(ext , "py") == 0)
     {
-        strcpy(actual_file_path, "D:\\CODE\\PYTHON\\");
+        strcpy(actual_file_path, PYTHON_FILE_PATH);
         strcat(actual_file_path, actual_file_name);
         strcat(actual_file_path, ".py");
     }
