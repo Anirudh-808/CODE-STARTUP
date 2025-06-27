@@ -6,9 +6,10 @@
 /*change the file path macros to the required directories*/
 #define C_FILE_PATH "D:\\CODE\\C\\"
 #define PYTHON_FILE_PATH "D:\\CODE\\PYTHON\\"
+#define HTML_FILE_PATH "D:\\CODE\\WEB_DEV\\"
 
 void check_file(FILE *file){
-    if (file = NULL)
+    if (file == NULL)
     {
         printf("ERROR OPENING FILE!"); 
         exit(1);
@@ -35,6 +36,8 @@ void check_ext_copy(char *ext, FILE *real)
         ref = fopen("ref.py", "r");
     } else if (strcmp(ext, "c") == 0) {
         ref = fopen("ref.c", "r");
+    } else if (strcmp(ext, "html") == 0) {
+        ref = fopen("ref.html", "r");
     } else {
         printf("Unsupported file extension: %s\n", ext);
         return; // Exit if the extension is not supported
@@ -74,6 +77,13 @@ int main(int argc, char *argv[])
         strcat(actual_file_path, actual_file_name);
         strcat(actual_file_path, ".py");
     }
+    else if (strcmp(ext , "html") == 0)
+    {
+        strcpy(actual_file_path, HTML_FILE_PATH);
+        strcat(actual_file_path, actual_file_name);
+        strcat(actual_file_path, ".html");
+    }
+
 
     printf("Actual file path: %s\n", actual_file_path);
     actual = fopen(actual_file_path , "w");
